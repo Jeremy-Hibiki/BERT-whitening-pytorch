@@ -1,14 +1,14 @@
 # coding: utf-8
 import os
-import sys
-import torch
-import numpy as np
-from transformers import BertModel, BertTokenizer
-from tqdm import tqdm
-import scipy.stats
 import pickle
-import requests
+import sys
 
+import numpy as np
+import requests
+import scipy.stats
+import torch
+from tqdm import tqdm
+from transformers import BertModel, BertTokenizer
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -38,7 +38,7 @@ def sent_to_vec(sent, tokenizer, model, pooling, max_length):
         elif pooling == 'cls':
             output_hidden_state = (hidden_states[-1])[:, 0, :]
         else:
-            raise Exception("unknown pooling {}".format(POOLING))
+            raise Exception("unknown pooling {}".format(pooling))
 
         vec = output_hidden_state.cpu().numpy()[0]
     return vec
@@ -80,7 +80,7 @@ def save_whiten(path, kernel, bias):
     with open(path, 'wb') as f:
         pickle.dump(whiten, f)
     return path
-    
+
 
 def load_whiten(path):
     with open(path, 'rb') as f:
@@ -132,6 +132,7 @@ def http_get(url, path):
 
 
 import inspect
+
 
 def get_size(obj, seen=None):
     """Recursively finds size of objects in bytes"""
