@@ -6,82 +6,49 @@
 @author: Weijie Liu
 @date: 20/01/2020
 """
-import os
-import torch
-import numpy as np
-from tqdm import tqdm
-import scipy.stats
-from all_utils import *
-import senteval
 import logging
+
+import numpy as np
 from prettytable import PrettyTable
 
+import senteval
+import senteval.engine
+from all_utils import *
 
-MAX_LENGTH = 64
-BATCH_SIZE = 256
+MAX_LENGTH = 512
+BATCH_SIZE = 512
 TEST_PATH = './data/'
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
 
-MODEL_ZOOS = {
+MODEL_LIST = [
+    "./model/bge-base-zh",
+    "./model/bge-large-zh",
+]
 
-    'BERTbase-whiten(NLI)': {
-        'encoder': './model/bert-base-uncased',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-base-uncased-first_last_avg-whiten(NLI).pkl',
-        'n_components': 768,
-    },
+POOLINGS = [
+    "cls",
+    "first_last_avg",
+]
 
-    'BERTbase-whiten-256(NLI)': {
-        'encoder': './model/bert-base-uncased',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-base-uncased-first_last_avg-whiten(NLI).pkl',
-        'n_components': 256,
-    },
+MODEL_ZOOS = {}
 
-    'BERTlarge-whiten(NLI)': {
-        'encoder': './model/bert-large-uncased',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-large-uncased-first_last_avg-whiten(NLI).pkl',
-        'n_components': 1024,
-    },
+for model in MODEL_LIST:
+    model_name = model.rsplit("/", 1)[-1]
+    model_name_show = ''.join([s.capitalize() for s in model_name.replace("-zh", "").split("-")])
+    model_scale = model_name.split("-")[1]
 
-    'BERTlarge-whiten-384(NLI)': {
-        'encoder': './model/bert-large-uncased',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-large-uncased-first_last_avg-whiten(NLI).pkl',
-        'n_components': 384,
-    },
+    d_original = 768 if model_scale == "base" else 1024
+    d_reduced = 256 if model_scale == "base" else 384
 
-    'SBERTbase-nli-whiten(NLI)': {
-        'encoder': './model/bert-base-nli-mean-tokens',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-base-nli-mean-tokens-first_last_avg-whiten(NLI).pkl',
-        'n_components': 768,
-    },
-
-    'SBERTbase-nli-whiten-256(NLI)': {
-        'encoder': './model/bert-base-nli-mean-tokens',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-base-nli-mean-tokens-first_last_avg-whiten(NLI).pkl',
-        'n_components': 256,
-    },
-
-    'SBERTlarge-nli-whiten(NLI)': {
-        'encoder': './model/bert-large-nli-mean-tokens',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-large-nli-mean-tokens-first_last_avg-whiten(NLI).pkl',
-        'n_components': 1024,
-    },
-
-    'SBERTlarge-nli-whiten-384(NLI)': {
-        'encoder': './model/bert-large-uncased',
-        'pooling': 'first_last_avg',
-        'whiten_file': './whiten/bert-large-nli-mean-tokens-first_last_avg-whiten(NLI).pkl',
-        'n_components': 384,
-    },
-
-}
+    for pooling in POOLINGS:
+        for d in [d_original, d_reduced]:
+            MODEL_ZOOS[f"{model_name_show}-whiten-{d}(NLI)-{pooling}"] = {
+                "encoder": model,
+                "pooling": pooling,
+                "whiten_file": f"./whiten/{model_name}-{pooling}-whiten(NLI).pkl",
+                "n_components": d
+            }
 
 
 def prepare(params, samples):
@@ -96,7 +63,7 @@ def batcher(params, batch):
                 params['encoder'], params['pooling'], MAX_LENGTH)
         embeddings.append(vec)
     embeddings = np.vstack(embeddings)
-    embeddings = transform_and_normalize(embeddings, 
+    embeddings = transform_and_normalize(embeddings,
             kernel=params['whiten'][0],
             bias=params['whiten'][1]
         )  # whitening
@@ -130,10 +97,10 @@ def run(model_name, test_path):
     transfer_tasks = [
             'STS12', 'STS13', 'STS14', 'STS15', 'STS16',
             'STSBenchmarkCosin',
-            'SICKRelatednessCosin', 
+            'SICKRelatednessCosin',
         ]
     results = se.eval(transfer_tasks)
-    
+
     # Show results
     table = PrettyTable(["Task", "Spearman"])
     for task in transfer_tasks:
@@ -154,5 +121,3 @@ def run_all_model():
 if __name__ == "__main__":
     # run('BERTbase-whiten-256(NLI)', TEST_PATH)
     run_all_model()
-
-

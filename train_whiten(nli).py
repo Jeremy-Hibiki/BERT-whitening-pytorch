@@ -7,29 +7,25 @@
 @date: 20/01/2020
 """
 import os
-import torch
-import numpy as np
-from transformers import BertModel, BertTokenizer
-from tqdm import tqdm
-import scipy.stats
-import pickle
-from all_utils import build_model, sents_to_vecs, compute_kernel_bias, save_whiten
 
+from all_utils import (build_model, compute_kernel_bias, save_whiten,
+                       sents_to_vecs)
 
 NLI_PATH = './data/AllNLI.tsv'
 
 MODEL_NAME_LIST = [
-    './model/bert-base-uncased',
-    './model/bert-large-uncased',
-    './model/bert-base-nli-mean-tokens',
-    './model/bert-large-nli-mean-tokens'
+    './model/bge-base-zh',
+    './model/bge-large-zh',
 ]
 
-POOLING = 'first_last_avg'
+POOLINGS = [
+    'cls',
+    'first_last_avg'
+]
 # POOLING = 'last_avg'
 # POOLING = 'last2avg'
 
-MAX_LENGTH = 64
+MAX_LENGTH = 512
 OUTPUT_DIR = './whiten/'
 
 
@@ -39,7 +35,8 @@ def load_dataset(path):
     """
     senta_batch, sentb_batch = [], []
     with open(path, encoding='utf-8') as f:
-        for i, line in enumerate(f):
+        lines = f.read().splitlines()[:100_000]
+        for i, line in enumerate(lines):
             if i == 0:
                 continue
             items = line.strip().split('\t')
@@ -58,22 +55,22 @@ def main():
         tokenizer, model = build_model(MODEL_NAME)
         print("Building {} tokenizer and model successfuly.".format(MODEL_NAME))
 
-        print("Transfer sentences to BERT vectors.")
-        a_vecs_train = sents_to_vecs(a_sents_train, tokenizer, model, POOLING, MAX_LENGTH)
-        b_vecs_train = sents_to_vecs(b_sents_train, tokenizer, model, POOLING, MAX_LENGTH)
+        for pooling in POOLINGS:
+            print("Transfer sentences to BERT vectors.")
+            a_vecs_train = sents_to_vecs(a_sents_train, tokenizer, model, pooling, MAX_LENGTH)
+            b_vecs_train = sents_to_vecs(b_sents_train, tokenizer, model, pooling, MAX_LENGTH)
 
-        print("Compute kernel and bias.")
-        kernel, bias = compute_kernel_bias([a_vecs_train, b_vecs_train])
+            print("Compute kernel and bias.")
+            kernel, bias = compute_kernel_bias([a_vecs_train, b_vecs_train])
 
-        model_name = MODEL_NAME.split('/')[-1]
-        output_filename = f"{model_name}-{POOLING}-whiten(NLI).pkl"
-        if not os.path.exists(OUTPUT_DIR):
-            os.mkdir(OUTPUT_DIR)
-        output_path = os.path.join(OUTPUT_DIR, output_filename)
-        save_whiten(output_path, kernel, bias)
-        print("Save to {}".format(output_path))
+            model_name = MODEL_NAME.split('/')[-1]
+            output_filename = f"{model_name}-{pooling}-whiten(NLI).pkl"
+            if not os.path.exists(OUTPUT_DIR):
+                os.mkdir(OUTPUT_DIR)
+            output_path = os.path.join(OUTPUT_DIR, output_filename)
+            save_whiten(output_path, kernel, bias)
+            print("Save to {}".format(output_path))
 
 
 if __name__ == "__main__":
     main()
-
