@@ -1,0 +1,336 @@
+2023-08-22 06:01:54,390 : BgeBase-cls configs: {'encoder': './model/bge-base-zh', 'pooling': 'cls'}
+2023-08-22 06:01:56,095 : Building ./model/bge-base-zh tokenizer and model successfuly.
+2023-08-22 06:01:56,095 : ***** Transfer task : STS12 *****
+
+
+2023-08-22 06:02:07,225 : MSRpar : pearson = 0.5207, spearman = 0.5075
+2023-08-22 06:02:17,592 : MSRvid : pearson = 0.8135, spearman = 0.8226
+2023-08-22 06:02:23,859 : SMTeuroparl : pearson = 0.5182, spearman = 0.5639
+2023-08-22 06:02:34,307 : surprise.OnWN : pearson = 0.6486, spearman = 0.6264
+2023-08-22 06:02:39,626 : surprise.SMTnews : pearson = 0.5690, spearman = 0.5489
+2023-08-22 06:02:39,627 : ALL (weighted average) : Pearson = 0.6281,             Spearman = 0.6259
+2023-08-22 06:02:39,627 : ALL (average) : Pearson = 0.6140,             Spearman = 0.6139
+
+2023-08-22 06:02:39,627 : ***** Transfer task : STS13 (-SMT) *****
+
+
+2023-08-22 06:02:42,259 : FNWN : pearson = 0.4980, spearman = 0.5034
+2023-08-22 06:02:52,778 : headlines : pearson = 0.7585, spearman = 0.7519
+2023-08-22 06:03:00,355 : OnWN : pearson = 0.5037, spearman = 0.5012
+2023-08-22 06:03:00,356 : ALL (weighted average) : Pearson = 0.6304,             Spearman = 0.6268
+2023-08-22 06:03:00,356 : ALL (average) : Pearson = 0.5867,             Spearman = 0.5855
+
+2023-08-22 06:03:00,356 : ***** Transfer task : STS14 *****
+
+
+2023-08-22 06:03:06,665 : deft-forum : pearson = 0.5426, spearman = 0.5392
+2023-08-22 06:03:10,869 : deft-news : pearson = 0.7550, spearman = 0.7085
+2023-08-22 06:03:21,302 : headlines : pearson = 0.7323, spearman = 0.6979
+2023-08-22 06:03:31,708 : images : pearson = 0.8146, spearman = 0.7847
+2023-08-22 06:03:42,049 : OnWN : pearson = 0.6304, spearman = 0.6670
+2023-08-22 06:03:52,370 : tweet-news : pearson = 0.7770, spearman = 0.7173
+2023-08-22 06:03:52,370 : ALL (weighted average) : Pearson = 0.7164,             Spearman = 0.6947
+2023-08-22 06:03:52,370 : ALL (average) : Pearson = 0.7087,             Spearman = 0.6858
+
+2023-08-22 06:03:52,370 : ***** Transfer task : STS15 *****
+
+
+2023-08-22 06:03:57,604 : answers-forums : pearson = 0.6546, spearman = 0.6510
+2023-08-22 06:04:07,799 : answers-students : pearson = 0.7586, spearman = 0.7683
+2023-08-22 06:04:12,974 : belief : pearson = 0.7156, spearman = 0.7258
+2023-08-22 06:04:23,305 : headlines : pearson = 0.7869, spearman = 0.7836
+2023-08-22 06:04:33,674 : images : pearson = 0.8138, spearman = 0.8302
+2023-08-22 06:04:33,674 : ALL (weighted average) : Pearson = 0.7611,             Spearman = 0.7676
+2023-08-22 06:04:33,674 : ALL (average) : Pearson = 0.7459,             Spearman = 0.7518
+
+2023-08-22 06:04:33,674 : ***** Transfer task : STS16 *****
+
+
+2023-08-22 06:04:37,132 : answer-answer : pearson = 0.5963, spearman = 0.5952
+2023-08-22 06:04:40,542 : headlines : pearson = 0.7633, spearman = 0.7678
+2023-08-22 06:04:43,721 : plagiarism : pearson = 0.8079, spearman = 0.8182
+2023-08-22 06:04:47,113 : postediting : pearson = 0.8379, spearman = 0.8544
+2023-08-22 06:04:50,048 : question-question : pearson = 0.6688, spearman = 0.6659
+2023-08-22 06:04:50,048 : ALL (weighted average) : Pearson = 0.7349,             Spearman = 0.7405
+2023-08-22 06:04:50,048 : ALL (average) : Pearson = 0.7348,             Spearman = 0.7403
+
+2023-08-22 06:04:50,048 : ***** Transfer task : SICK-Relatedness*****
+
+
+2023-08-22 06:04:50,065 : Computing embedding for test
+2023-08-22 06:05:56,577 : Computed test embeddings
+2023-08-22 06:05:56,748 : Test : Pearson 0.7190586180001901 Spearman 0.6533621604390478 MSE 7.774467631788776
+
+2023-08-22 06:05:56,749 : 
+
+***** Transfer task : STSBenchmark*****
+
+
+2023-08-22 06:05:56,843 : Computing embedding for test
+2023-08-22 06:06:15,600 : Computed test embeddings
+2023-08-22 06:06:15,649 : Test : Pearson 0.6904074905520281 Spearman 0.6956350310174476 MSE 5.091816548923818
+
+2023-08-22 06:06:15,650 : BgeBase-cls results:
++----------------------+--------------------+
+|         Task         |      Spearman      |
++----------------------+--------------------+
+|        STS12         | 0.6258791792251641 |
+|        STS13         | 0.6268315220946896 |
+|        STS14         | 0.6947460199469029 |
+|        STS15         | 0.767626057711892  |
+|        STS16         | 0.740451663306604  |
+| SICKRelatednessCosin | 0.6533621604390478 |
+|  STSBenchmarkCosin   | 0.6956350310174476 |
++----------------------+--------------------+
+2023-08-22 06:06:15,656 : BgeBase-first_last_avg configs: {'encoder': './model/bge-base-zh', 'pooling': 'first_last_avg'}
+2023-08-22 06:06:16,281 : Building ./model/bge-base-zh tokenizer and model successfuly.
+2023-08-22 06:06:16,281 : ***** Transfer task : STS12 *****
+
+
+2023-08-22 06:06:26,375 : MSRpar : pearson = 0.5137, spearman = 0.5230
+2023-08-22 06:06:36,651 : MSRvid : pearson = 0.8095, spearman = 0.8138
+2023-08-22 06:06:42,934 : SMTeuroparl : pearson = 0.5680, spearman = 0.6064
+2023-08-22 06:06:53,215 : surprise.OnWN : pearson = 0.6812, spearman = 0.6718
+2023-08-22 06:06:58,712 : surprise.SMTnews : pearson = 0.6786, spearman = 0.5669
+2023-08-22 06:06:58,713 : ALL (weighted average) : Pearson = 0.6547,             Spearman = 0.6470
+2023-08-22 06:06:58,713 : ALL (average) : Pearson = 0.6502,             Spearman = 0.6364
+
+2023-08-22 06:06:58,713 : ***** Transfer task : STS13 (-SMT) *****
+
+
+2023-08-22 06:07:01,377 : FNWN : pearson = 0.3245, spearman = 0.3083
+2023-08-22 06:07:11,735 : headlines : pearson = 0.7623, spearman = 0.7570
+2023-08-22 06:07:19,526 : OnWN : pearson = 0.5824, spearman = 0.5828
+2023-08-22 06:07:19,527 : ALL (weighted average) : Pearson = 0.6399,             Spearman = 0.6353
+2023-08-22 06:07:19,527 : ALL (average) : Pearson = 0.5564,             Spearman = 0.5494
+
+2023-08-22 06:07:19,527 : ***** Transfer task : STS14 *****
+
+
+2023-08-22 06:07:25,723 : deft-forum : pearson = 0.5666, spearman = 0.5661
+2023-08-22 06:07:29,891 : deft-news : pearson = 0.7939, spearman = 0.7330
+2023-08-22 06:07:40,299 : headlines : pearson = 0.7321, spearman = 0.6926
+2023-08-22 06:07:50,719 : images : pearson = 0.7880, spearman = 0.7747
+2023-08-22 06:08:01,066 : OnWN : pearson = 0.6792, spearman = 0.7183
+2023-08-22 06:08:11,456 : tweet-news : pearson = 0.7853, spearman = 0.7359
+2023-08-22 06:08:11,457 : ALL (weighted average) : Pearson = 0.7284,             Spearman = 0.7109
+2023-08-22 06:08:11,457 : ALL (average) : Pearson = 0.7242,             Spearman = 0.7035
+
+2023-08-22 06:08:11,457 : ***** Transfer task : STS15 *****
+
+
+2023-08-22 06:08:16,662 : answers-forums : pearson = 0.6538, spearman = 0.6557
+2023-08-22 06:08:26,957 : answers-students : pearson = 0.7601, spearman = 0.7750
+2023-08-22 06:08:32,182 : belief : pearson = 0.7273, spearman = 0.7330
+2023-08-22 06:08:42,622 : headlines : pearson = 0.7855, spearman = 0.7847
+2023-08-22 06:08:53,107 : images : pearson = 0.8257, spearman = 0.8397
+2023-08-22 06:08:53,107 : ALL (weighted average) : Pearson = 0.7655,             Spearman = 0.7734
+2023-08-22 06:08:53,107 : ALL (average) : Pearson = 0.7505,             Spearman = 0.7576
+
+2023-08-22 06:08:53,107 : ***** Transfer task : STS16 *****
+
+
+2023-08-22 06:08:56,620 : answer-answer : pearson = 0.5542, spearman = 0.5570
+2023-08-22 06:09:00,067 : headlines : pearson = 0.7663, spearman = 0.7741
+2023-08-22 06:09:03,232 : plagiarism : pearson = 0.7916, spearman = 0.7971
+2023-08-22 06:09:06,630 : postediting : pearson = 0.8459, spearman = 0.8645
+2023-08-22 06:09:09,533 : question-question : pearson = 0.6743, spearman = 0.6699
+2023-08-22 06:09:09,534 : ALL (weighted average) : Pearson = 0.7260,             Spearman = 0.7323
+2023-08-22 06:09:09,534 : ALL (average) : Pearson = 0.7265,             Spearman = 0.7325
+
+2023-08-22 06:09:09,534 : ***** Transfer task : SICK-Relatedness*****
+
+
+2023-08-22 06:09:09,608 : Computing embedding for test
+2023-08-22 06:10:17,106 : Computed test embeddings
+2023-08-22 06:10:17,278 : Test : Pearson 0.7083844610750905 Spearman 0.6332442870200155 MSE 7.8702548496315465
+
+2023-08-22 06:10:17,279 : 
+
+***** Transfer task : STSBenchmark*****
+
+
+2023-08-22 06:10:17,302 : Computing embedding for test
+2023-08-22 06:10:36,395 : Computed test embeddings
+2023-08-22 06:10:36,445 : Test : Pearson 0.7152418321548232 Spearman 0.7135643472371404 MSE 5.1510770059774975
+
+2023-08-22 06:10:36,445 : BgeBase-first_last_avg results:
++----------------------+--------------------+
+|         Task         |      Spearman      |
++----------------------+--------------------+
+|        STS12         | 0.6470371497084376 |
+|        STS13         | 0.6353202216724245 |
+|        STS14         | 0.7108959268954965 |
+|        STS15         | 0.7734277257617126 |
+|        STS16         | 0.7322972131473583 |
+| SICKRelatednessCosin | 0.6332442870200155 |
+|  STSBenchmarkCosin   | 0.7135643472371404 |
++----------------------+--------------------+
+2023-08-22 06:10:36,450 : BgeLarge-cls configs: {'encoder': './model/bge-large-zh', 'pooling': 'cls'}
+2023-08-22 06:10:38,530 : Building ./model/bge-large-zh tokenizer and model successfuly.
+2023-08-22 06:10:38,530 : ***** Transfer task : STS12 *****
+
+
+2023-08-22 06:10:57,848 : MSRpar : pearson = 0.5381, spearman = 0.5283
+2023-08-22 06:11:17,210 : MSRvid : pearson = 0.8497, spearman = 0.8537
+2023-08-22 06:11:28,725 : SMTeuroparl : pearson = 0.5107, spearman = 0.5712
+2023-08-22 06:11:47,797 : surprise.OnWN : pearson = 0.6916, spearman = 0.6683
+2023-08-22 06:11:58,088 : surprise.SMTnews : pearson = 0.6567, spearman = 0.6323
+2023-08-22 06:11:58,088 : ALL (weighted average) : Pearson = 0.6615,             Spearman = 0.6603
+2023-08-22 06:11:58,088 : ALL (average) : Pearson = 0.6494,             Spearman = 0.6508
+
+2023-08-22 06:11:58,088 : ***** Transfer task : STS13 (-SMT) *****
+
+
+2023-08-22 06:12:03,265 : FNWN : pearson = 0.5474, spearman = 0.5641
+2023-08-22 06:12:22,456 : headlines : pearson = 0.7750, spearman = 0.7660
+2023-08-22 06:12:36,802 : OnWN : pearson = 0.6553, spearman = 0.6580
+2023-08-22 06:12:36,802 : ALL (weighted average) : Pearson = 0.7016,             Spearman = 0.7002
+2023-08-22 06:12:36,802 : ALL (average) : Pearson = 0.6592,             Spearman = 0.6627
+
+2023-08-22 06:12:36,802 : ***** Transfer task : STS14 *****
+
+
+2023-08-22 06:12:48,243 : deft-forum : pearson = 0.5874, spearman = 0.5848
+2023-08-22 06:12:56,101 : deft-news : pearson = 0.7859, spearman = 0.7624
+2023-08-22 06:13:15,201 : headlines : pearson = 0.7537, spearman = 0.7161
+2023-08-22 06:13:34,445 : images : pearson = 0.8525, spearman = 0.8223
+2023-08-22 06:13:53,591 : OnWN : pearson = 0.7403, spearman = 0.7659
+2023-08-22 06:14:12,529 : tweet-news : pearson = 0.8073, spearman = 0.7468
+2023-08-22 06:14:12,530 : ALL (weighted average) : Pearson = 0.7641,             Spearman = 0.7414
+2023-08-22 06:14:12,530 : ALL (average) : Pearson = 0.7545,             Spearman = 0.7331
+
+2023-08-22 06:14:12,530 : ***** Transfer task : STS15 *****
+
+
+2023-08-22 06:14:21,995 : answers-forums : pearson = 0.7212, spearman = 0.7119
+2023-08-22 06:14:40,895 : answers-students : pearson = 0.8086, spearman = 0.8226
+2023-08-22 06:14:50,564 : belief : pearson = 0.7696, spearman = 0.7686
+2023-08-22 06:15:09,370 : headlines : pearson = 0.7998, spearman = 0.7960
+2023-08-22 06:15:28,358 : images : pearson = 0.8752, spearman = 0.8867
+2023-08-22 06:15:28,358 : ALL (weighted average) : Pearson = 0.8073,             Spearman = 0.8114
+2023-08-22 06:15:28,359 : ALL (average) : Pearson = 0.7949,             Spearman = 0.7972
+
+2023-08-22 06:15:28,359 : ***** Transfer task : STS16 *****
+
+
+2023-08-22 06:15:34,734 : answer-answer : pearson = 0.7070, spearman = 0.7195
+2023-08-22 06:15:41,143 : headlines : pearson = 0.8000, spearman = 0.8139
+2023-08-22 06:15:46,878 : plagiarism : pearson = 0.8424, spearman = 0.8559
+2023-08-22 06:15:53,190 : postediting : pearson = 0.8564, spearman = 0.8747
+2023-08-22 06:15:58,660 : question-question : pearson = 0.7017, spearman = 0.6995
+2023-08-22 06:15:58,660 : ALL (weighted average) : Pearson = 0.7826,             Spearman = 0.7942
+2023-08-22 06:15:58,660 : ALL (average) : Pearson = 0.7815,             Spearman = 0.7927
+
+2023-08-22 06:15:58,660 : ***** Transfer task : SICK-Relatedness*****
+
+
+2023-08-22 06:15:58,674 : Computing embedding for test
+2023-08-22 06:18:05,190 : Computed test embeddings
+2023-08-22 06:18:05,368 : Test : Pearson 0.7594573004226681 Spearman 0.7221441391682474 MSE 7.836246557122927
+
+2023-08-22 06:18:05,369 : 
+
+***** Transfer task : STSBenchmark*****
+
+
+2023-08-22 06:18:05,389 : Computing embedding for test
+2023-08-22 06:18:40,624 : Computed test embeddings
+2023-08-22 06:18:40,674 : Test : Pearson 0.7559506167130556 Spearman 0.7580046066871716 MSE 5.13705803951626
+
+2023-08-22 06:18:40,675 : BgeLarge-cls results:
++----------------------+--------------------+
+|         Task         |      Spearman      |
++----------------------+--------------------+
+|        STS12         | 0.6602933145697477 |
+|        STS13         | 0.7001673763161024 |
+|        STS14         | 0.7413868734982835 |
+|        STS15         | 0.8114032179319006 |
+|        STS16         | 0.794164801831334  |
+| SICKRelatednessCosin | 0.7221441391682474 |
+|  STSBenchmarkCosin   | 0.7580046066871716 |
++----------------------+--------------------+
+2023-08-22 06:18:40,681 : BgeLarge-first_last_avg configs: {'encoder': './model/bge-large-zh', 'pooling': 'first_last_avg'}
+2023-08-22 06:18:42,406 : Building ./model/bge-large-zh tokenizer and model successfuly.
+2023-08-22 06:18:42,406 : ***** Transfer task : STS12 *****
+
+
+2023-08-22 06:19:01,489 : MSRpar : pearson = 0.3449, spearman = 0.3777
+2023-08-22 06:19:20,874 : MSRvid : pearson = 0.7961, spearman = 0.7998
+2023-08-22 06:19:32,414 : SMTeuroparl : pearson = 0.5478, spearman = 0.5966
+2023-08-22 06:19:51,445 : surprise.OnWN : pearson = 0.7027, spearman = 0.7005
+2023-08-22 06:20:01,530 : surprise.SMTnews : pearson = 0.6661, spearman = 0.5740
+2023-08-22 06:20:01,530 : ALL (weighted average) : Pearson = 0.6113,             Spearman = 0.6150
+2023-08-22 06:20:01,531 : ALL (average) : Pearson = 0.6115,             Spearman = 0.6097
+
+2023-08-22 06:20:01,531 : ***** Transfer task : STS13 (-SMT) *****
+
+
+2023-08-22 06:20:06,787 : FNWN : pearson = 0.3283, spearman = 0.3352
+2023-08-22 06:20:25,760 : headlines : pearson = 0.7471, spearman = 0.7341
+2023-08-22 06:20:40,071 : OnWN : pearson = 0.6040, spearman = 0.6142
+2023-08-22 06:20:40,072 : ALL (weighted average) : Pearson = 0.6408,             Spearman = 0.6390
+2023-08-22 06:20:40,072 : ALL (average) : Pearson = 0.5598,             Spearman = 0.5612
+
+2023-08-22 06:20:40,072 : ***** Transfer task : STS14 *****
+
+
+2023-08-22 06:20:51,501 : deft-forum : pearson = 0.5275, spearman = 0.5322
+2023-08-22 06:20:59,371 : deft-news : pearson = 0.7627, spearman = 0.7118
+2023-08-22 06:21:18,395 : headlines : pearson = 0.7201, spearman = 0.6783
+2023-08-22 06:21:37,666 : images : pearson = 0.7947, spearman = 0.7721
+2023-08-22 06:21:56,598 : OnWN : pearson = 0.6936, spearman = 0.7308
+2023-08-22 06:22:15,679 : tweet-news : pearson = 0.7643, spearman = 0.7138
+2023-08-22 06:22:15,679 : ALL (weighted average) : Pearson = 0.7188,             Spearman = 0.6998
+2023-08-22 06:22:15,679 : ALL (average) : Pearson = 0.7105,             Spearman = 0.6898
+
+2023-08-22 06:22:15,679 : ***** Transfer task : STS15 *****
+
+
+2023-08-22 06:22:25,269 : answers-forums : pearson = 0.6256, spearman = 0.6202
+2023-08-22 06:22:44,205 : answers-students : pearson = 0.7586, spearman = 0.7766
+2023-08-22 06:22:53,675 : belief : pearson = 0.7038, spearman = 0.7190
+2023-08-22 06:23:12,642 : headlines : pearson = 0.7663, spearman = 0.7658
+2023-08-22 06:23:31,701 : images : pearson = 0.8479, spearman = 0.8546
+2023-08-22 06:23:31,701 : ALL (weighted average) : Pearson = 0.7594,             Spearman = 0.7667
+2023-08-22 06:23:31,701 : ALL (average) : Pearson = 0.7404,             Spearman = 0.7472
+
+2023-08-22 06:23:31,701 : ***** Transfer task : STS16 *****
+
+
+2023-08-22 06:23:38,143 : answer-answer : pearson = 0.6219, spearman = 0.6343
+2023-08-22 06:23:44,456 : headlines : pearson = 0.7810, spearman = 0.7875
+2023-08-22 06:23:50,168 : plagiarism : pearson = 0.7804, spearman = 0.7849
+2023-08-22 06:23:56,509 : postediting : pearson = 0.8528, spearman = 0.8707
+2023-08-22 06:24:01,757 : question-question : pearson = 0.5849, spearman = 0.5657
+2023-08-22 06:24:01,757 : ALL (weighted average) : Pearson = 0.7270,             Spearman = 0.7322
+2023-08-22 06:24:01,757 : ALL (average) : Pearson = 0.7242,             Spearman = 0.7286
+
+2023-08-22 06:24:01,757 : ***** Transfer task : SICK-Relatedness*****
+
+
+2023-08-22 06:24:01,830 : Computing embedding for test
+2023-08-22 06:26:07,308 : Computed test embeddings
+2023-08-22 06:26:07,486 : Test : Pearson 0.7198572434686393 Spearman 0.6642596339013976 MSE 7.75077206586346
+
+2023-08-22 06:26:07,486 : 
+
+***** Transfer task : STSBenchmark*****
+
+
+2023-08-22 06:26:07,507 : Computing embedding for test
+2023-08-22 06:26:42,572 : Computed test embeddings
+2023-08-22 06:26:42,623 : Test : Pearson 0.707072170380525 Spearman 0.699823727942571 MSE 5.087516294701957
+
+2023-08-22 06:26:42,624 : BgeLarge-first_last_avg results:
++----------------------+--------------------+
+|         Task         |      Spearman      |
++----------------------+--------------------+
+|        STS12         | 0.6150096612184923 |
+|        STS13         | 0.6389987151638693 |
+|        STS14         | 0.6998010841395987 |
+|        STS15         | 0.7666559337510904 |
+|        STS16         |  0.73223871498872  |
+| SICKRelatednessCosin | 0.6642596339013976 |
+|  STSBenchmarkCosin   | 0.699823727942571  |
++----------------------+--------------------+

@@ -104,3 +104,5 @@ data/downstream/*
 
 model/*
 !model/download_models.sh
+
+!tmp/*.log

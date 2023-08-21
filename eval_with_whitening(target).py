@@ -16,7 +16,7 @@ import senteval.engine
 from all_utils import *
 
 MAX_LENGTH = 512
-BATCH_SIZE = 512
+BATCH_SIZE = 1024
 TEST_PATH = './data/'
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
