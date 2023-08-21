@@ -7,6 +7,7 @@
 @date: 20/01/2020
 """
 import os
+import random
 
 from all_utils import (build_model, compute_kernel_bias, save_whiten,
                        sents_to_vecs)
@@ -35,10 +36,8 @@ def load_dataset(path):
     """
     senta_batch, sentb_batch = [], []
     with open(path, encoding='utf-8') as f:
-        lines = f.read().splitlines()[:100_000]
-        for i, line in enumerate(lines):
-            if i == 0:
-                continue
+        lines = f.read().splitlines()[1:]
+        for i, line in enumerate(random.sample(lines, 50_000)):
             items = line.strip().split('\t')
             senta, sentb = items[-3], items[-2]
             senta_batch.append(senta)
